@@ -12,6 +12,6 @@ class Pcp extends Model
     protected $fillable = [
         'registrationNumber', 'taxStatus', 'taxDueDate', 'motStatus', 'make', 'yearOfManufacture',
         'engineCapacity', 'co2Emissions', 'fuelType', 'markedForExport', 'colour', 'typeApproval', 'dateOfLastV5CIssued', 'motExpiryDate',
-        'wheelplan', 'monthOfFirstRegistration', 'title', 'name', 'email', 'phone', 'vehicle_value', 'owned_since', 'pcp_taken_out', 'dealers_name', 'lenders_name'
+        'wheelplan', 'monthOfFirstRegistration', 'title', 'name', 'email', 'phone', 'dob', 'vehicle_value', 'owned_since', 'pcp_taken_out', 'dealers_name', 'lenders_name'
     ];
 }

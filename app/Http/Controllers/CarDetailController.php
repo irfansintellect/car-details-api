@@ -51,6 +51,7 @@ class CarDetailController extends Controller
     public function storeClaim(StoreRequest $request)
     {
         $data = $request->validated();
+        dd($request->all());
         Pcp::create($request->all());
         $email = new SendVehicleDetailEmail($request->all());
         Mail::send($email);

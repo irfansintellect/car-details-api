@@ -2,32 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.poster-step-1:before {
+.poster:before {
     background-image: url("img/step-1-car.jpg") !important;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    content: " ";
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    position: absolute;
-}
-
-.poster-step-2:before {
-    background-image: url("img/step-2-car.jpg") !important;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    content: " ";
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    position: absolute;
-}
-
-.poster-step-3:before {
-    background-image: url("img/step-3-car.jpg") !important;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
