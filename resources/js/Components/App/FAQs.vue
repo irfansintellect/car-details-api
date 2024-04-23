@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-white dark:bg-gray-900 border-b">
+    <section class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white border-b">
         <div class="py-8 px-6 mx-auto max-w-7xl sm:py-16 lg:px-0">
             <div class="relative mx-auto max-w-6xl text-center">
                 <h2
@@ -28,7 +28,7 @@
                                     d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
                                 ></path>
                             </svg>
-                            <span
+                            <span class=""
                                 >What is Personal Contract Purchase (PCP)
                                 compensation?</span
                             >

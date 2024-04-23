@@ -801,7 +801,7 @@ const scrollToSection = (newValue) => {
                                 <h1 class="text-4xl md:text-7xl font-bold">
                                     Welcome to PCP Claims
                                 </h1>
-                                <p class="text-xl md:text-2xl">
+                                <p class="text-xl md:text-2xl text-white">
                                     At PCP Claims, we understand the frustration
                                     and confusion that can arise from mis-sold
                                     Personal Contract Purchase agreements
