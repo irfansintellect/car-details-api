@@ -3,6 +3,8 @@
 use App\Http\Controllers\CarDetailController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Pcp;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -16,7 +18,11 @@ route::get('/thank-you', [CarDetailController::class, 'thankYou'])->name('thank-
 
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+
+    return Inertia::render('Dashboard', [
+        'quries' => Pcp::all(),
+    ]);
+
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

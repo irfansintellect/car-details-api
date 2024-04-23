@@ -6,14 +6,14 @@ defineProps({
     },
 });
 
-defineEmits(["update:showCarDetails"]);
+defineEmits(["update:showCarDetails", "isShowCarDetail"]);
 </script>
 
 <template>
     <div class="mt-10 bg-white p-10 rounded-lg relative">
         <button
             class="absolute top-3 right-3"
-            @click.prevent="$emit('update:showCarDetails', false)"
+            @click.prevent="$emit('update:showCarDetails', 'update:isShowCarDetail', false)"
         >
             <svg
                 xmlns="http://www.w3.org/2000/svg"

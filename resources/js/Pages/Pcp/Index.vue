@@ -76,6 +76,9 @@ const validations = computed(() => ({
     lenders_name: {
         required: helpers.withMessage("Please enter lender name.", required),
     },
+    pcp_taken_out:{
+        required: helpers.withMessage("Please Choose PCP Taken Value.", required),
+    }
 }));
 const v$ = useVuelidate(validations, form);
 
@@ -404,9 +407,16 @@ const scrollToSection = (newValue) => {
                                                 the last 8 years?</label
                                             >
                                             <div
+
+                                                :class="{
+                                                    'border-red-600':
+                                                        v$.pcp_taken_out
+                                                            ?.$error,
+                                                }"
+
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                             >
-                                                <div class="flex items-center">
+                                                <div class="flex items-center" >
                                                     <label
                                                         for="rbyes"
                                                         class="flex items-center cursor-pointer"
@@ -444,8 +454,24 @@ const scrollToSection = (newValue) => {
                                                             >No</span
                                                         >
                                                     </label>
+
                                                 </div>
+
+
+
                                             </div>
+                                            <small
+                                            class="text-red-600"
+                                            v-if="
+                                                v$.pcp_taken_out?.$error
+                                            "
+                                        >
+                                            {{
+                                                v$.pcp_taken_out
+                                                    ?.$errors[0]
+                                                    ?.$message
+                                            }}
+                                        </small>
                                         </div>
 
                                         <div
