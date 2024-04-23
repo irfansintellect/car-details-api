@@ -1,37 +1,22 @@
 <template>
-    <section class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white border-b">
+    <section class=" border-b bg-gray-100">
         <div class="py-8 px-6 mx-auto max-w-7xl sm:py-16 lg:px-0">
             <div class="relative mx-auto max-w-6xl text-center">
-                <h2
-                    class="my-3 text-2xl flex items-center justify-center font-medium"
-                >
-                    FAQs
+                <h2 class="my-3 text-5xl flex items-center justify-center font-bold">
+                    FAQ
                 </h2>
+                <h4 class="text-bold text-xl">Frequently Asked Questions</h4>
             </div>
 
             <ul class="mx-auto mt-10 divide-y shadow">
                 <li>
                     <details class="group" open>
-                        <summary
-                            class="flex items-center gap-3 px-4 py-3 font-medium marker:content-none hover:cursor-pointer"
-                        >
-                            <svg
-                                class="w-5 h-5 text-gray-500 transition group-open:rotate-90"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                viewBox="0 0 16 16"
-                            >
-                                <path
-                                    fill-rule="evenodd"
-                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                                ></path>
+                        <summary class="flex items-center gap-3 px-4 py-3 font-medium marker:content-none hover:cursor-pointer">
+                            <svg class="w-5 h-5 text-gray-500 transition group-open:rotate-90" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
                             </svg>
-                            <span class=""
-                                >What is Personal Contract Purchase (PCP)
-                                compensation?</span
-                            >
+                            <span class="">What is Personal Contract Purchase (PCP)
+                                compensation?</span>
                         </summary>
 
                         <article class="px-4 pb-4">
@@ -49,26 +34,12 @@
                 </li>
                 <li>
                     <details class="group">
-                        <summary
-                            class="flex items-center gap-3 px-4 py-3 font-medium marker:content-none hover:cursor-pointer"
-                        >
-                            <svg
-                                class="w-5 h-5 text-gray-500 transition group-open:rotate-90"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                viewBox="0 0 16 16"
-                            >
-                                <path
-                                    fill-rule="evenodd"
-                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                                ></path>
+                        <summary class="flex items-center gap-3 px-4 py-3 font-medium marker:content-none hover:cursor-pointer">
+                            <svg class="w-5 h-5 text-gray-500 transition group-open:rotate-90" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
                             </svg>
-                            <span
-                                >How do I know if I have a valid PCP
-                                claim?</span
-                            >
+                            <span>How do I know if I have a valid PCP
+                                claim?</span>
                         </summary>
 
                         <article class="px-4 pb-4">
@@ -86,21 +57,9 @@
                 </li>
                 <li>
                     <details class="group">
-                        <summary
-                            class="flex items-center gap-3 px-4 py-3 font-medium marker:content-none hover:cursor-pointer"
-                        >
-                            <svg
-                                class="w-5 h-5 text-gray-500 transition group-open:rotate-90"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                viewBox="0 0 16 16"
-                            >
-                                <path
-                                    fill-rule="evenodd"
-                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                                ></path>
+                        <summary class="flex items-center gap-3 px-4 py-3 font-medium marker:content-none hover:cursor-pointer">
+                            <svg class="w-5 h-5 text-gray-500 transition group-open:rotate-90" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
                             </svg>
                             <span>How long does the claims process take?</span>
                         </summary>
@@ -119,21 +78,9 @@
                 </li>
                 <li>
                     <details class="group">
-                        <summary
-                            class="flex items-center gap-3 px-4 py-3 font-medium marker:content-none hover:cursor-pointer"
-                        >
-                            <svg
-                                class="w-5 h-5 text-gray-500 transition group-open:rotate-90"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                viewBox="0 0 16 16"
-                            >
-                                <path
-                                    fill-rule="evenodd"
-                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                                ></path>
+                        <summary class="flex items-center gap-3 px-4 py-3 font-medium marker:content-none hover:cursor-pointer">
+                            <svg class="w-5 h-5 text-gray-500 transition group-open:rotate-90" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
                             </svg>
                             <span>Is there a cost to making a PCP claim?</span>
                         </summary>
@@ -152,21 +99,9 @@
                 </li>
                 <li>
                     <details class="group">
-                        <summary
-                            class="flex items-center gap-3 px-4 py-3 font-medium marker:content-none hover:cursor-pointer"
-                        >
-                            <svg
-                                class="w-5 h-5 text-gray-500 transition group-open:rotate-90"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                viewBox="0 0 16 16"
-                            >
-                                <path
-                                    fill-rule="evenodd"
-                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                                ></path>
+                        <summary class="flex items-center gap-3 px-4 py-3 font-medium marker:content-none hover:cursor-pointer">
+                            <svg class="w-5 h-5 text-gray-500 transition group-open:rotate-90" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
                             </svg>
                             <span>How much compensation could I receive?</span>
                         </summary>

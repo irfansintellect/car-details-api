@@ -43,7 +43,7 @@ class CarDetailController extends Controller
             return back();
         } catch (ClientException $e) {
             $response = $e->getResponse();
-            Session::flash('search_error', 'Failed to search registration number: ' . $regno);
+            Session::flash('search_error', 'Registration not found: ' . $regno);
             return back();
         }
     }

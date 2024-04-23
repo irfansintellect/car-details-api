@@ -30,7 +30,7 @@ const onClickScrollToSection = (newValue) => {
                         @click="onClickScrollToSection('home')"
                         class="mr-4 hover:underline md:mr-6"
                     >
-                        Home
+                        Start Claim
                     </button>
                 </li>
                 <li>
