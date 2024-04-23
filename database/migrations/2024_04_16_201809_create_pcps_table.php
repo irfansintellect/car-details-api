@@ -31,15 +31,16 @@ return new class extends Migration
             $table->string('motExpiryDate')->nullable();
             $table->string('wheelplan')->nullable();
             $table->string('monthOfFirstRegistration')->nullable();
-            $table->string('title')->nullable();
-            $table->string('name')->nullable();
-            $table->string('email')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('vehicle_value')->nullable();
-            $table->string('owned_since')->nullable();
-            $table->string('pcp_taken_out')->nullable();
-            $table->string('dealers_name')->nullable();
-            $table->string('lenders_name')->nullable();
+            $table->string('title');
+            $table->string('name');
+            $table->string('email');
+            $table->string('phone');
+            $table->date('dob');
+            $table->string('vehicle_value');
+            $table->string('owned_since');
+            $table->string('pcp_taken_out');
+            $table->string('dealers_name');
+            $table->string('lenders_name');
             $table->timestamps();
         });
     }

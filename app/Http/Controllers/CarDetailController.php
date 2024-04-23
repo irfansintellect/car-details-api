@@ -60,7 +60,6 @@ class CarDetailController extends Controller
 
     public function thankYou()
     {
-
-        return Inertia::render('ThankYou');
+        return Inertia::render('Pcp/ThankYou');
     }
 }

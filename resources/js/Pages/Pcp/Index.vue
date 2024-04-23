@@ -9,8 +9,8 @@ import { Head, useForm } from "@inertiajs/vue3";
 import { useVuelidate } from "@vuelidate/core";
 import { email, helpers, required } from "@vuelidate/validators";
 import { computed, ref } from "vue";
-import CheckNowRibbon from "../Components/App/CheckNowRibbon.vue";
-import Searching from "@/Components/App/Searching.vue";
+import CheckNowRibbon from "../../Components/App/CheckNowRibbon.vue";
+import Loading from "@/Components/App/Loading.vue";
 
 const currentStep = ref(1);
 const isLoading = ref(false);
@@ -51,9 +51,10 @@ const form = useForm({
     name: "",
     email: "",
     phone: "",
+    dob: "",
     vehicle_value: "",
     owned_since: "",
-    pcp_taken_out: null,
+    pcp_taken_out: "",
     dealers_name: "",
     lenders_name: "",
     confirmClaim: null,
@@ -96,9 +97,14 @@ async function prevStep() {
 }
 
 function submitCliam() {
+    isLoading.value = true;
     form.post(route("store-claim"), {
         onSuccess: () => {
-            window.location.href = route("thank-you");
+            console.log("here");
+            isLoading.value = false;
+        },
+        onError: () => {
+            isLoading.value = false;
         },
     });
 }
@@ -146,7 +152,7 @@ const scrollToSection = (newValue) => {
         <PcpLayout @viewSection="scrollToSection">
             <main>
                 <section
-                    class="bg-secondary-500 poster relative h-full md:h-[700px]"
+                    class="bg-secondary-500 poster relative h-full md:h-[750px]"
                 >
                     <div v-if="showCarDetails">
                         <div
@@ -211,7 +217,7 @@ const scrollToSection = (newValue) => {
                                                 @click.prevent="nextStep"
                                                 class="w-full items-center text-xl justify-center px-5 py-3 font-medium text-center border rounded-lg bg-green-500 text-white"
                                             >
-                                                <Searching v-if="isLoading" />
+                                                <Loading v-if="isLoading" />
                                                 <template v-else>
                                                     Search Claim
                                                 </template>
@@ -279,7 +285,7 @@ const scrollToSection = (newValue) => {
                                         <div class="mb-5">
                                             <label
                                                 for="vehicle_value"
-                                                class="block mb-2 text-sm font-medium text-gray-900"
+                                                class="block text-base font-bold"
                                                 >Vehicle Value</label
                                             >
                                             <div>
@@ -333,7 +339,7 @@ const scrollToSection = (newValue) => {
                                         <div class="mb-5">
                                             <label
                                                 for="owned_since"
-                                                class="block mb-2 text-sm font-medium text-gray-900"
+                                                class="block text-base font-bold"
                                                 >How long have you had/did you
                                                 have the vehicle for?</label
                                             >
@@ -347,7 +353,7 @@ const scrollToSection = (newValue) => {
                                                             v$.owned_since
                                                                 ?.$error,
                                                     }"
-                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                 >
                                                     <option value="" disabled>
                                                         Select
@@ -393,15 +399,18 @@ const scrollToSection = (newValue) => {
                                         <div class="mb-5">
                                             <label
                                                 for=""
-                                                class="block mb-2 text-sm font-medium text-gray-900"
+                                                class="block text-base font-bold"
                                                 >Was your PCP/HP taken out in
                                                 the last 8 years?</label
                                             >
                                             <div
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                             >
-                                                <div class="flex">
-                                                    <div class="me-5">
+                                                <div class="flex items-center">
+                                                    <label
+                                                        for="rbyes"
+                                                        class="flex items-center cursor-pointer"
+                                                    >
                                                         <input
                                                             type="radio"
                                                             id="rbyes"
@@ -409,15 +418,18 @@ const scrollToSection = (newValue) => {
                                                                 form.pcp_taken_out
                                                             "
                                                             value="yes"
+                                                            class="form-radio h-5 w-5 text-green-500"
                                                         />
-                                                        <label
-                                                            for="rbyes"
-                                                            class="ms-1"
-                                                            >Yes</label
+                                                        <span
+                                                            class="ml-2 text-sm"
+                                                            >Yes</span
                                                         >
-                                                    </div>
+                                                    </label>
 
-                                                    <div>
+                                                    <label
+                                                        for="rbno"
+                                                        class="flex items-center ml-5 cursor-pointer"
+                                                    >
                                                         <input
                                                             type="radio"
                                                             id="rbno"
@@ -425,14 +437,13 @@ const scrollToSection = (newValue) => {
                                                                 form.pcp_taken_out
                                                             "
                                                             value="no"
-                                                            checked
+                                                            class="form-radio h-5 w-5 text-red-500"
                                                         />
-                                                        <label
-                                                            for="rbno"
-                                                            class="ms-1"
-                                                            >No</label
+                                                        <span
+                                                            class="ml-2 text-sm"
+                                                            >No</span
                                                         >
-                                                    </div>
+                                                    </label>
                                                 </div>
                                             </div>
                                         </div>
@@ -443,7 +454,7 @@ const scrollToSection = (newValue) => {
                                             <div class="mb-5">
                                                 <label
                                                     for="dealers_name"
-                                                    class="block mb-2 text-sm font-medium text-gray-900"
+                                                    class="block text-base font-bold"
                                                     >Your Dealer's name</label
                                                 >
                                                 <input
@@ -475,7 +486,7 @@ const scrollToSection = (newValue) => {
                                             <div class="mb-5">
                                                 <label
                                                     for="lenders_name"
-                                                    class="block mb-2 text-sm font-medium text-gray-900"
+                                                    class="block text-base font-bold"
                                                     >Your Lender's name</label
                                                 >
                                                 <input
@@ -504,7 +515,7 @@ const scrollToSection = (newValue) => {
                                                 </small>
                                             </div>
                                         </div>
-                                        <div class="mt-4 flex gap-6">
+                                        <div class="mt-2 flex gap-6">
                                             <button
                                                 type="submit"
                                                 @click.prevent="prevStep"
@@ -536,7 +547,7 @@ const scrollToSection = (newValue) => {
                                                 class="flex w-full items-center"
                                             >
                                                 <div
-                                                    class="flex w-full h-6 bg-gray-200 rounded overflow-hidden dark:bg-neutral-700"
+                                                    class="flex w-full h-6 bg-gray-200 rounded overflow-hidden"
                                                     role="progressbar"
                                                     aria-valuenow="75"
                                                     aria-valuemin="0"
@@ -560,7 +571,7 @@ const scrollToSection = (newValue) => {
                                         <div class="mb-5">
                                             <label
                                                 for="title"
-                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                                class="block text-base font-bold"
                                                 >Title</label
                                             >
                                             <div>
@@ -573,7 +584,7 @@ const scrollToSection = (newValue) => {
                                                             form.errors.title &&
                                                             !form.title,
                                                     }"
-                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                 >
                                                     <option value="" disabled>
                                                         Select
@@ -611,7 +622,7 @@ const scrollToSection = (newValue) => {
                                         <div class="mb-5">
                                             <label
                                                 for="name"
-                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                                class="block text-base font-bold"
                                                 >Your Name</label
                                             >
                                             <input
@@ -623,7 +634,7 @@ const scrollToSection = (newValue) => {
                                                         form.errors.name &&
                                                         !form.name,
                                                 }"
-                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                 placeholder="Your Name"
                                             />
                                             <small
@@ -639,7 +650,7 @@ const scrollToSection = (newValue) => {
                                         <div class="mb-5">
                                             <label
                                                 for="email"
-                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                                class="block text-base font-bold"
                                                 >Your Email</label
                                             >
                                             <input
@@ -651,7 +662,7 @@ const scrollToSection = (newValue) => {
                                                         form.errors.email &&
                                                         !form.email,
                                                 }"
-                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                 placeholder="name@flowbite.com"
                                             />
                                             <small
@@ -670,7 +681,7 @@ const scrollToSection = (newValue) => {
                                             <div class="mb-5">
                                                 <label
                                                     for="phone"
-                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                                    class="block text-base font-bold"
                                                     >Date of Birth</label
                                                 >
                                                 <input
@@ -682,7 +693,7 @@ const scrollToSection = (newValue) => {
                                                             form.errors.dob &&
                                                             !form.dob,
                                                     }"
-                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                     placeholder="Your Phone"
                                                 />
                                                 <small
@@ -698,7 +709,7 @@ const scrollToSection = (newValue) => {
                                             <div class="mb-5">
                                                 <label
                                                     for="phone"
-                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                                    class="block text-base font-bold"
                                                     >Your Phone</label
                                                 >
                                                 <input
@@ -710,7 +721,7 @@ const scrollToSection = (newValue) => {
                                                             form.errors.phone &&
                                                             !form.phone,
                                                     }"
-                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                     placeholder="Your Phone"
                                                 />
                                                 <small
@@ -727,16 +738,18 @@ const scrollToSection = (newValue) => {
                                         <div
                                             class="flex items-center justify-between mb-5"
                                         >
-                                            <div class="flex items-start h-5">
+                                            <div
+                                                class="flex items-center h-5 gap-1"
+                                            >
                                                 <input
                                                     id="remember"
                                                     type="checkbox"
                                                     v-model="form.confirmClaim"
-                                                    class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+                                                    class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300"
                                                 />
                                                 <label
                                                     for="remember"
-                                                    class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                                    class="block text-base font-bold"
                                                     >I agree to terms and
                                                     conditions</label
                                                 >
@@ -751,7 +764,7 @@ const scrollToSection = (newValue) => {
                                             </button>
                                         </div>
 
-                                        <div class="mt-4 flex gap-6">
+                                        <div class="mt-2 flex gap-6">
                                             <button
                                                 type="submit"
                                                 @click.prevent="prevStep"
@@ -762,7 +775,10 @@ const scrollToSection = (newValue) => {
                                             <button
                                                 type="submit"
                                                 @click.prevent="submitCliam"
-                                                :disabled="!form.confirmClaim"
+                                                :disabled="
+                                                    !form.confirmClaim ||
+                                                    isLoading
+                                                "
                                                 :class="
                                                     form.confirmClaim
                                                         ? 'bg-green-500'
@@ -770,7 +786,10 @@ const scrollToSection = (newValue) => {
                                                 "
                                                 class="w-full items-center text-xl justify-center px-5 py-3 font-medium text-center border rounded-lg text-white"
                                             >
-                                                Submit Claim
+                                                <Loading v-if="isLoading" />
+                                                <template v-else>
+                                                    Submit Claim
+                                                </template>
                                             </button>
                                         </div>
                                     </form>

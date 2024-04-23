@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Welcome', [
+        return Inertia::render('Pcp/Index', [
             'data' => session('car_data'),
             'searchError' => session('search_error'),
         ]);

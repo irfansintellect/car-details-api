@@ -27,11 +27,7 @@ class StoreRequest extends FormRequest
             'name' => ['required'],
             'email' => ['required'],
             'phone' => ['required'],
-            'vehicle_value' => ['required'],
-            'owned_since' => ['required'],
-            'pcp_taken_out' => ['required'],
-            'dealers_name' => ['required'],
-            'lenders_name' => ['required'],
+            'dob' => ['required', 'date'],
         ];
     }
 }
