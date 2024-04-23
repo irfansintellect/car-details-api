@@ -16,15 +16,11 @@ function showCarDetails(query) {
     <Head title="Dashboard" />
 
     <AuthenticatedLayout>
-        <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Dashboard
-            </h2>
-        </template>
-
         <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 relative">
+                <div
+                    class="bg-white p-4 overflow-hidden shadow-sm sm:rounded-lg"
+                >
                     <table class="table-auto w-full">
                         <thead>
                             <tr>
@@ -57,15 +53,24 @@ function showCarDetails(query) {
                                 <td>{{ query.dealers_name }}</td>
                                 <td>{{ query.lenders_name }}</td>
                                 <td>
-                                    <button @click="showCarDetails(query)">
-                                        22
+                                    <button
+                                        @click="showCarDetails(query)"
+                                        class="bg-indigo-700 text-white p-1 rounded shadow-sm"
+                                    >
+                                        View
                                     </button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-
-                    <div v-if="isShowCarDetail">
+                </div>
+                <div v-if="isShowCarDetail">
+                    <div
+                        class="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-60 z-10"
+                    ></div>
+                    <div
+                        class="absolute z-20 top-4 right-0 left-0 flex justify-center items-center"
+                    >
                         <CarDetails
                             :form="form"
                             @update:isShowCarDetail="isShowCarDetail = $event"

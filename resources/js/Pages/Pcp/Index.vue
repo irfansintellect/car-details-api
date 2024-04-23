@@ -76,9 +76,12 @@ const validations = computed(() => ({
     lenders_name: {
         required: helpers.withMessage("Please enter lender name.", required),
     },
-    pcp_taken_out:{
-        required: helpers.withMessage("Please Choose PCP Taken Value.", required),
-    }
+    pcp_taken_out: {
+        required: helpers.withMessage(
+            "Please Choose PCP Taken Value.",
+            required
+        ),
+    },
 }));
 const v$ = useVuelidate(validations, form);
 
@@ -154,9 +157,7 @@ const scrollToSection = (newValue) => {
     <div ref="sectionHome">
         <PcpLayout @viewSection="scrollToSection">
             <main>
-                <section
-                    class="bg-secondary-500 poster relative h-full md:h-[750px]"
-                >
+                <section class="bg-secondary-500 poster relative">
                     <div v-if="showCarDetails">
                         <div
                             class="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-60 z-10"
@@ -172,8 +173,8 @@ const scrollToSection = (newValue) => {
                     </div>
 
                     <div class="container mx-auto pb-20 pt-20 px-4">
-                        <div class="block md:grid grid-cols-12 gap-40">
-                            <div class="col-span-4">
+                        <div class="md:block lg:grid grid-cols-5 gap-10">
+                            <div class="md:col-span-2">
                                 <div
                                     class="bg-white p-10 mt-16 rounded-lg shadow-lg text-center relative overflow-hidden"
                                     v-if="currentStep == 1"
@@ -252,7 +253,7 @@ const scrollToSection = (newValue) => {
                                 </div>
 
                                 <div
-                                    class="bg-white p-10 rounded-lg shadow-lg relative overflow-hidden"
+                                    class="bg-white p-10 mt-16 rounded-lg shadow-lg relative overflow-hidden"
                                     v-if="currentStep == 2"
                                 >
                                     <CheckNowRibbon />
@@ -264,7 +265,7 @@ const scrollToSection = (newValue) => {
                                                 class="flex w-full items-center"
                                             >
                                                 <div
-                                                    class="flex w-full h-6 bg-gray-200 rounded overflow-hidden dark:bg-neutral-700"
+                                                    class="flex w-full h-6 bg-gray-200 rounded overflow-hidden"
                                                     role="progressbar"
                                                     aria-valuenow="75"
                                                     aria-valuemin="0"
@@ -301,7 +302,7 @@ const scrollToSection = (newValue) => {
                                                             v$.vehicle_value
                                                                 ?.$error,
                                                     }"
-                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                 >
                                                     <option value="" disabled>
                                                         Select
@@ -407,16 +408,14 @@ const scrollToSection = (newValue) => {
                                                 the last 8 years?</label
                                             >
                                             <div
-
                                                 :class="{
                                                     'border-red-600':
                                                         v$.pcp_taken_out
                                                             ?.$error,
                                                 }"
-
-                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                             >
-                                                <div class="flex items-center" >
+                                                <div class="flex items-center">
                                                     <label
                                                         for="rbyes"
                                                         class="flex items-center cursor-pointer"
@@ -454,24 +453,17 @@ const scrollToSection = (newValue) => {
                                                             >No</span
                                                         >
                                                     </label>
-
                                                 </div>
-
-
-
                                             </div>
                                             <small
-                                            class="text-red-600"
-                                            v-if="
-                                                v$.pcp_taken_out?.$error
-                                            "
-                                        >
-                                            {{
-                                                v$.pcp_taken_out
-                                                    ?.$errors[0]
-                                                    ?.$message
-                                            }}
-                                        </small>
+                                                class="text-red-600"
+                                                v-if="v$.pcp_taken_out?.$error"
+                                            >
+                                                {{
+                                                    v$.pcp_taken_out?.$errors[0]
+                                                        ?.$message
+                                                }}
+                                            </small>
                                         </div>
 
                                         <div
@@ -492,7 +484,7 @@ const scrollToSection = (newValue) => {
                                                             v$.dealers_name
                                                                 ?.$error,
                                                     }"
-                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                     placeholder="Your Dealer's name"
                                                 />
                                                 <small
@@ -524,7 +516,7 @@ const scrollToSection = (newValue) => {
                                                             v$.lenders_name
                                                                 ?.$error,
                                                     }"
-                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                     placeholder="Your Lender's name"
                                                 />
                                                 <small
@@ -561,7 +553,7 @@ const scrollToSection = (newValue) => {
                                 </div>
 
                                 <div
-                                    class="bg-white p-10 rounded-lg shadow-lg relative overflow-hidden"
+                                    class="bg-white p-10 mt-16 rounded-lg shadow-lg relative overflow-hidden"
                                     v-if="currentStep == 3"
                                 >
                                     <CheckNowRibbon />
@@ -822,12 +814,14 @@ const scrollToSection = (newValue) => {
                                 </div>
                             </div>
                             <div
-                                class="relative col-span-7 flex flex-col items-start justify-center text-white"
+                                class="relative col-span-3 mt-14 text-wrap flex flex-col items-center justify-center text-white"
                             >
-                                <h1 class="text-4xl md:text-7xl font-bold">
+                                <h1
+                                    class="text-3xl md:text-5xl xl:text-7xl font-bold"
+                                >
                                     Welcome to PCP Claims
                                 </h1>
-                                <p class="text-xl md:text-2xl">
+                                <p class="md:text-xl lg:text-2xl">
                                     At PCP Claims, we understand the frustration
                                     and confusion that can arise from mis-sold
                                     Personal Contract Purchase agreements

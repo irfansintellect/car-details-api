@@ -11,15 +11,17 @@
                     />
                 </div>
                 <div class="py-4 w-full lg:w-6/12">
-                    <div class="bg-white lg:-ml-12 lg:pl-12 lg:py-12">
+                    <div
+                        class="bg-white lg:-ml-12 lg:pl-12 lg:py-0 xl:py-12 md:border-0 lg:border pr-5"
+                    >
                         <h4
                             class="capitalize font-bold text-3xl text-gray-900 xl:text-3xl"
                         >
                             Your Trusted Partner for Personal Contract Purchase
                             Compensation!
                         </h4>
-                        <div class="bg-primary-500 mb-6 pb-1 w-2/12"></div>
-                        <p class="mb-6">
+                        <div class="bg-primary-500 mb-3 pb-1 w-2/12"></div>
+                        <p class="mb-3">
                             Navigating through financial agreements can be
                             daunting, especially when you realize you've been
                             misled or sold an unsuitable finance agreement.
