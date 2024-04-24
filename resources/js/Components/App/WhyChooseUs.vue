@@ -68,7 +68,7 @@
                 </p>
             </div>
 
-            <div class="rounded-md border p-8 text-center shadow">
+            <div class="rounded-md border p-6 text-center shadow">
                 <div class="button-text mx-auto flex items-center justify-center rounded-md ">
 
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="h-[60px] mb-3 fill-green-700">
