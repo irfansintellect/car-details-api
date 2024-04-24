@@ -11,10 +11,8 @@ class HomeController extends Controller
     public function index()
     {
 
-        // $sessionData = Session::get('car_data');
-        // if ($sessionData) {
-        //     Session::forget('car_data');
-        // }
+        // Session::forget('car_data');
+
         return Inertia::render('Pcp/Index', [
             'data' => session('car_data'),
             'searchError' => session('search_error'),
