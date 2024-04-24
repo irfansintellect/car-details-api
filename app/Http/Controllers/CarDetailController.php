@@ -45,7 +45,16 @@ class CarDetailController extends Controller
             Session::put('car_data', $car_data);
             Session::forget('search_error');
 
-            return back();
+            return redirect()->to(route('home'));
+
+            // return to_route('home');
+
+            // return back();
+
+            // return Inertia::render('Pcp/Index', [
+            //     'data' => session('car_data'),
+            //     'searchError' => session('search_error'),
+            // ]);
         } catch (ClientException $e) {
             $response = $e->getResponse();
             Session::flash('search_error', 'Registration not found: ' . $regno);

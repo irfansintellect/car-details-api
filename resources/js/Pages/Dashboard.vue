@@ -31,7 +31,7 @@ const props = defineProps({
                 <div
                     class="bg-white relative overflow-x-auto shadow-md sm:rounded-lg"
                 >
-                    <table class="w-full text-sm text-left rtl:text-right">
+                    <table v-if="props.quries?.data.length > 0" class="w-full text-sm text-left rtl:text-right">
                         <thead>
                             <tr>
                                 <th class="border p-2 text-sm">Title</th>
@@ -91,6 +91,10 @@ const props = defineProps({
                             </tr>
                         </tbody>
                     </table>
+
+                    <div v-else class="p-5">
+                        No records found
+                    </div>
                     <div class="my-5">
                         <TailwindPagination
                             :data="props.quries"
