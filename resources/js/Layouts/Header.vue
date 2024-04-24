@@ -63,7 +63,7 @@ function toggleMenu() {
                         {{ newValue }}
                         <button
                             @click="onClickScrollToSection('home')"
-                            class="block py-2 px-3 text-gray-900 rounded md:p-0"
+                            class="block py-2 px-3 text-gray-900 rounded md:p-0 hover:text-green-600 transition-all"
                             :class="{ 'text-blue-700': navValue == 'home' }"
                             aria-current="page"
                         >
@@ -73,7 +73,7 @@ function toggleMenu() {
                     <li>
                         <button
                             @click="onClickScrollToSection('FAQs')"
-                            class="block py-2 px-3 text-gray-900 rounded md:border-0 md:p-0"
+                            class="block py-2 px-3 text-gray-900 rounded md:border-0 md:p-0 hover:text-green-600 transition-all"
                             :class="{ 'text-blue-700': navValue == 'FAQs' }"
                         >
                             FAQs
@@ -82,7 +82,7 @@ function toggleMenu() {
                     <li>
                         <button
                             @click="onClickScrollToSection('privacyPolicy')"
-                            class="block py-2 px-3 text-gray-900 rounded md:p-0"
+                            class="block py-2 px-3 text-gray-900 rounded md:p-0 hover:text-green-600 transition-all"
                             :class="{
                                 'text-blue-700': navValue == 'privacyPolicy',
                             }"
