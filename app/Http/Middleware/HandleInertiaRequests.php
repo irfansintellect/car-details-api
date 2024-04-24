@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use App\Http\Resources\SettingResource;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -31,6 +33,7 @@ class HandleInertiaRequests extends Middleware
     {
         return [
             ...parent::share($request),
+            'generalSetting' => new SettingResource(Setting::first()),
             'auth' => [
                 'user' => $request->user(),
             ],

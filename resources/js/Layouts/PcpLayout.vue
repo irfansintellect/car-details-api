@@ -1,20 +1,29 @@
 <script setup>
 import HeaderLayout from "@/Layouts/Header.vue";
 import FooterLayout from "@/Layouts/Footer.vue";
+import { usePage } from "@inertiajs/vue3";
 
 const emit = defineEmits(["viewSection"]);
 
 const scrollToSection = (newValue) => {
     emit("viewSection", newValue);
 };
+
+const generalSetting = usePage().props.generalSetting;
 </script>
 
 <template>
-    <div class="">
-        <HeaderLayout @viewSection="scrollToSection"></HeaderLayout>
+    <div>
+        <HeaderLayout
+            @viewSection="scrollToSection"
+            :logo="generalSetting.logo_black"
+        ></HeaderLayout>
 
-        <slot />
+        <slot></slot>
 
-        <FooterLayout @viewSection="scrollToSection"></FooterLayout>
+        <FooterLayout
+            @viewSection="scrollToSection"
+            :logo="generalSetting.logo_white"
+        ></FooterLayout>
     </div>
 </template>

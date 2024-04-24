@@ -1,13 +1,18 @@
 <script setup>
 import { ref } from "vue";
+
+defineProps({
+    logo: String,
+});
 const navValue = ref(null);
+const isMenuOpen = ref(false);
+
 const emit = defineEmits(["viewSection"]);
+
 const onClickScrollToSection = (newValue) => {
     navValue.value = newValue;
     emit("viewSection", newValue);
 };
-
-const isMenuOpen = ref(false);
 
 function toggleMenu() {
     isMenuOpen.value = !isMenuOpen.value;
@@ -20,11 +25,7 @@ function toggleMenu() {
             class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
         >
             <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img
-                    src="/img/logo/pcp-black.svg"
-                    class="h-12 w-full"
-                    alt="Flowbite Logo"
-                />
+                <img :src="logo" class="h-12 w-full" alt="Flowbite Logo" />
             </a>
             <button
                 data-collapse-toggle="navbar-default"
@@ -63,8 +64,8 @@ function toggleMenu() {
                         {{ newValue }}
                         <button
                             @click="onClickScrollToSection('home')"
-                            class="block py-2 px-3 text-gray-900 rounded md:p-0"
-                            :class="{ 'text-blue-700': navValue == 'home' }"
+                            class="block py-2 px-3 text-gray-900 rounded md:p-0 hover:text-green-600 transition-all"
+                            :class="{ 'text-green-600': navValue == 'home' }"
                             aria-current="page"
                         >
                             Start Claim
@@ -73,8 +74,8 @@ function toggleMenu() {
                     <li>
                         <button
                             @click="onClickScrollToSection('FAQs')"
-                            class="block py-2 px-3 text-gray-900 rounded md:border-0 md:p-0"
-                            :class="{ 'text-blue-700': navValue == 'FAQs' }"
+                            class="block py-2 px-3 text-gray-900 rounded md:border-0 md:p-0 hover:text-green-600 transition-all"
+                            :class="{ 'text-green-600': navValue == 'FAQs' }"
                         >
                             FAQs
                         </button>
@@ -82,9 +83,9 @@ function toggleMenu() {
                     <li>
                         <button
                             @click="onClickScrollToSection('privacyPolicy')"
-                            class="block py-2 px-3 text-gray-900 rounded md:p-0"
+                            class="block py-2 px-3 text-gray-900 rounded md:p-0 hover:text-green-600 transition-all"
                             :class="{
-                                'text-blue-700': navValue == 'privacyPolicy',
+                                'text-green-600': navValue == 'privacyPolicy',
                             }"
                         >
                             Privacy Policy
