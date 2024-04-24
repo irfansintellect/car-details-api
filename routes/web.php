@@ -20,7 +20,7 @@ route::get('/thank-you', [CarDetailController::class, 'thankYou'])->name('thank-
 Route::get('/dashboard', function () {
 
     return Inertia::render('Dashboard', [
-        'quries' => Pcp::paginate(2),
+        'quries' => Pcp::orderBy('id', 'desc')->paginate(2),
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
