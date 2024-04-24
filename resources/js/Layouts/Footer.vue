@@ -3,6 +3,10 @@ const emit = defineEmits(["viewSection"]);
 const onClickScrollToSection = (newValue) => {
     emit("viewSection", newValue);
 };
+
+defineProps({
+    logo: String,
+});
 </script>
 <template>
     <footer class="p-4 bg-gray-800 md:p-8 lg:p-10 dark:bg-gray-800 dark">
@@ -12,7 +16,7 @@ const onClickScrollToSection = (newValue) => {
                 class="flex justify-center items-center text-2xl font-semibold"
             >
                 <img
-                    src="/img/logo/pcp-white.svg"
+                    :src="logo"
                     class="h-12 w-full fill-red-600"
                     alt="PCP Logo"
                 />

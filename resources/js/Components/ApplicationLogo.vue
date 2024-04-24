@@ -1,3 +1,9 @@
+<script setup>
+defineProps({
+    logo: String,
+});
+</script>
+
 <template>
-    <img src="img/logo/pcp-black.svg"/>
+    <img :src="logo" />
 </template>

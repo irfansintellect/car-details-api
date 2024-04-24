@@ -1,13 +1,18 @@
 <script setup>
 import { ref } from "vue";
+
+defineProps({
+    logo: String,
+});
 const navValue = ref(null);
+const isMenuOpen = ref(false);
+
 const emit = defineEmits(["viewSection"]);
+
 const onClickScrollToSection = (newValue) => {
     navValue.value = newValue;
     emit("viewSection", newValue);
 };
-
-const isMenuOpen = ref(false);
 
 function toggleMenu() {
     isMenuOpen.value = !isMenuOpen.value;
@@ -20,11 +25,7 @@ function toggleMenu() {
             class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
         >
             <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img
-                    src="/img/logo/pcp-black.svg"
-                    class="h-12 w-full"
-                    alt="Flowbite Logo"
-                />
+                <img :src="logo" class="h-12 w-full" alt="Flowbite Logo" />
             </a>
             <button
                 data-collapse-toggle="navbar-default"

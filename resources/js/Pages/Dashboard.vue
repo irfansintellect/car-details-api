@@ -1,6 +1,6 @@
 <script setup>
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-import { Head, Link, router, usePage } from "@inertiajs/vue3";
+import { Head, router } from "@inertiajs/vue3";
 import CarDetails from "@/Components/App/CarDetails.vue";
 import { ref } from "vue";
 import { TailwindPagination } from "laravel-vue-pagination";
