@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarDetailController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Pcp;
@@ -17,12 +18,8 @@ Route::post('/store-claim', [CarDetailController::class, 'storeClaim'])->name('s
 route::get('/thank-you', [CarDetailController::class, 'thankYou'])->name('thank-you');
 
 
-Route::get('/dashboard', function () {
-
-    return Inertia::render('Dashboard', [
-        'quries' => Pcp::orderBy('id', 'desc')->paginate(2),
-    ]);
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
