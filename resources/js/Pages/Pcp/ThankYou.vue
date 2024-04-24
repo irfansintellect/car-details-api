@@ -6,13 +6,16 @@ import { Head } from "@inertiajs/vue3";
 <template>
     <Head title="Thank You" />
     <PcpLayout>
-        <div class="my-64 container m-auto">
-            <h3 class="text-center text-4xl font-bold mt-6 mb-6">Thank you</h3>
-            <p class="text-center">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Aliquid vel iste recusandae dolores itaque tenetur perferendis.
-                Vero eveniet saepe recusandae pariatur quibusdam cumque, sunt
-                quasi, voluptatem voluptatum excepturi explicabo ipsa?
+        <div
+            class="py-20 md:py-64 m-auto text-white"
+            style="background-image: url('img/step-1-car-dark.jpg')"
+        >
+            <h3 class="text-center text-4xl md:text-6xl font-bold mt-6 mb-5">
+                Thank you
+            </h3>
+            <p class="text-center text-xl md:text-2xl">
+                Thank you for submitting the form. Our team will contact you for
+                further details if required
             </p>
         </div>
     </PcpLayout>

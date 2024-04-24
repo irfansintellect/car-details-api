@@ -2,11 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .poster:before {
     background-image: url("img/step-1-car-dark.jpg") !important;
-    /* background-size: cover; */
-    /* background-position: center center; */
+    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
     content: " ";
     width: 100%;
