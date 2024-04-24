@@ -37,6 +37,11 @@ class CarDetailController extends Controller
             ]);
             $data = $response->getBody()->getContents();
             $car_data = json_decode($data);
+
+            $sessionData = Session::get('car_data');
+            if ($sessionData) {
+                Session::forget('car_data');
+            }
             Session::put('car_data', $car_data);
             Session::forget('search_error');
 

@@ -11,6 +11,9 @@ import { email, helpers, required } from "@vuelidate/validators";
 import { computed, ref } from "vue";
 import CheckNowRibbon from "../../Components/App/CheckNowRibbon.vue";
 import Loading from "@/Components/App/Loading.vue";
+import { usePage } from "@inertiajs/vue3";
+
+const generalSetting = usePage().props.generalSetting;
 
 const currentStep = ref(1);
 const isLoading = ref(false);
@@ -932,22 +935,22 @@ const scrollToSection = (newValue) => {
                                     You may be eligible for a claim!
                                 </h1>
                                 <p class="text-sm md:text-xl lg:text-xl pr-10">
-                                    At My PCP Claim, we understand the
-                                    frustration and confusion that can arise
-                                    from mis-sold Personal Contract Purchase
-                                    agreements
+                                    At {{ generalSetting.company_name }}, we
+                                    understand the frustration and confusion
+                                    that can arise from mis-sold Personal
+                                    Contract Purchase agreements
                                 </p>
                             </div>
                         </div>
                     </div>
                 </section>
-                <TrustedPartner />
-                <WhyChooseUs />
+                <TrustedPartner :name="generalSetting.company_name" />
+                <WhyChooseUs :name="generalSetting.company_name" />
                 <div ref="sectionFAQs">
-                    <FAQs />
+                    <FAQs :name="generalSetting.company_name" />
                 </div>
                 <div ref="sectionPrivacyPolicy">
-                    <PrivacyPolicy />
+                    <PrivacyPolicy :generalSetting="generalSetting" />
                 </div>
             </main>
         </PcpLayout>

@@ -9,10 +9,16 @@ import TextInput from "@/Components/TextInput.vue";
 const props = defineProps({
     setting: Object,
 });
+
+import { usePage } from "@inertiajs/vue3";
+const generalSetting = usePage().props.generalSetting;
+
 const form = useForm({
     companyName: props.setting.company_name,
     logo_black: null,
     logo_white: null,
+    companyEmail: props.setting.company_email,
+    companyPhone: props.setting.company_phone,
 });
 
 function submitSetting() {
@@ -36,7 +42,7 @@ function submitSetting() {
                     <section>
                         <header>
                             <h2 class="text-lg font-medium text-gray-900">
-                                Update Seting
+                                Update Setting
                             </h2>
 
                             <p class="mt-1 text-sm text-gray-600">
@@ -49,7 +55,7 @@ function submitSetting() {
                             @submit.prevent="submitSetting"
                         >
                             <div>
-                                <InputLabel for="name" value="Name" />
+                                <InputLabel for="name" value="Site Name" />
                                 <TextInput
                                     id="name"
                                     v-model="form.companyName"
@@ -64,6 +70,43 @@ function submitSetting() {
                                     class="mt-2"
                                     :message="form.errors.companyName"
                                 />
+                            </div>
+
+                            <div class="flex justify-start gap-2">
+                                <div>
+                                    <InputLabel
+                                        for="email"
+                                        value="Company Email"
+                                    />
+                                    <TextInput
+                                        id="email"
+                                        v-model="form.companyEmail"
+                                        type="email"
+                                        class="mt-1 block w-full"
+                                    />
+
+                                    <InputError
+                                        class="mt-2"
+                                        :message="form.errors.companyEmail"
+                                    />
+                                </div>
+                                <div>
+                                    <InputLabel
+                                        for="phone"
+                                        value="Company Phone"
+                                    />
+                                    <TextInput
+                                        id="phone"
+                                        v-model="form.companyPhone"
+                                        type="tel"
+                                        class="mt-1 block w-full"
+                                    />
+
+                                    <InputError
+                                        class="mt-2"
+                                        :message="form.errors.companyPhone"
+                                    />
+                                </div>
                             </div>
 
                             <div>
@@ -84,6 +127,12 @@ function submitSetting() {
                                     :message="form.errors.logo_white"
                                 />
                             </div>
+                            <div class="p-5 bg-gray-700">
+                                <img
+                                    :src="generalSetting.logo_white"
+                                    class="h-20"
+                                />
+                            </div>
 
                             <div>
                                 <InputLabel
@@ -101,6 +150,13 @@ function submitSetting() {
                                 <InputError
                                     class="mt-2"
                                     :message="form.errors.logo_black"
+                                />
+                            </div>
+
+                            <div class="p-5">
+                                <img
+                                    :src="generalSetting.logo_black"
+                                    class="h-20"
                                 />
                             </div>
 

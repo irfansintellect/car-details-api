@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('company_name')->nullable();
             $table->string('logo_white')->nullable();
             $table->string('logo_black')->nullable();
+            $table->string('company_email')->nullable();
+            $table->string('company_phone')->nullable();
             $table->timestamps();
         });
     }

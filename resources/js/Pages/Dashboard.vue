@@ -27,11 +27,11 @@ const props = defineProps({
 
     <AuthenticatedLayout>
         <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 relative">
+            <div class="w-full mx-auto sm:px-6 lg:px-8 relative">
                 <div
-                    class="bg-white p-4 overflow-hidden shadow-sm sm:rounded-lg"
+                    class="bg-white relative overflow-x-auto shadow-md sm:rounded-lg"
                 >
-                    <table class="table-auto w-full">
+                    <table class="w-full text-sm text-left rtl:text-right">
                         <thead>
                             <tr>
                                 <th class="border p-2 text-sm">Title</th>
@@ -48,6 +48,7 @@ const props = defineProps({
                                 </th>
                                 <th class="border p-2 text-sm">Dealers Name</th>
                                 <th class="border p-2 text-sm">Lenders Name</th>
+                                <th class="border p-2 text-sm">Created Date</th>
                                 <th class="border p-2 text-sm">Action</th>
                             </tr>
                         </thead>
@@ -75,6 +76,9 @@ const props = defineProps({
                                 </td>
                                 <td class="border p-2">
                                     {{ query.lenders_name }}
+                                </td>
+                                <td class="border p-2">
+                                    {{ query.created_at }}
                                 </td>
                                 <td class="border p-2">
                                     <button

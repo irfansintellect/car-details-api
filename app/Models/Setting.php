@@ -13,5 +13,7 @@ class Setting extends Model
         'company_name',
         'logo_white',
         'logo_black',
+        'company_email',
+        'company_phone'
     ];
 }

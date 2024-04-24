@@ -5,5 +5,5 @@ defineProps({
 </script>
 
 <template>
-    <img :src="logo" />
+    <img :src="logo" alt="error" />
 </template>

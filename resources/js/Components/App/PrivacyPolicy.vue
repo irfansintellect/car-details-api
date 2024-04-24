@@ -1,27 +1,43 @@
+<script setup>
+defineProps({
+    generalSetting: Object,
+});
+</script>
 <template>
     <section class="bg-white">
         <div class="py-8 px-6 mx-auto max-w-7xl sm:py-16 lg:px-0">
             <div class="relative mx-auto max-w-5xl text-center">
-                <h2 class="my-3 text-2xl flex items-center justify-center font-medium">
+                <h2
+                    class="my-3 text-2xl flex items-center justify-center font-medium"
+                >
                     Privacy Policy
                 </h2>
-                <p class="mx-auto my-4 w-full max-w-2xl text-center font-medium leading-relaxed tracking-wide">
-                    At PCP Claims, we take your privacy seriously and are
-                    committed to protecting your personal information. This
-                    privacy policy outlines how we collect, use, and safeguard
-                    your data when you use our services.
+                <p
+                    class="mx-auto my-4 w-full max-w-2xl text-center font-medium leading-relaxed tracking-wide"
+                >
+                    At {{ generalSetting.company_name }}, we take your privacy
+                    seriously and are committed to protecting your personal
+                    information. This privacy policy outlines how we collect,
+                    use, and safeguard your data when you use our services.
                 </p>
             </div>
-            <div class="grid pt-8 text-left border-t border-gray-200 md:gap-16 md:grid-cols-2">
+            <div
+                class="grid pt-8 text-left border-t border-gray-200 md:gap-16 md:grid-cols-2"
+            >
                 <div class="mb-10">
-                    <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-[20px] mr-2">
+                    <h3
+                        class="flex items-center mb-4 text-lg font-medium text-gray-900"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512"
+                            class="w-[20px] mr-2"
+                        >
                             <path
-                                d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM294.6 135.1l99.9 107.1c3.5 3.8 5.5 8.7 5.5 13.8s-2 10.1-5.5 13.8L294.6 376.9c-4.2 4.5-10.1 7.1-16.3 7.1C266 384 256 374 256 361.7l0-57.7-96 0c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32l96 0 0-57.7c0-12.3 10-22.3 22.3-22.3c6.2 0 12.1 2.6 16.3 7.1z" />
+                                d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM294.6 135.1l99.9 107.1c3.5 3.8 5.5 8.7 5.5 13.8s-2 10.1-5.5 13.8L294.6 376.9c-4.2 4.5-10.1 7.1-16.3 7.1C266 384 256 374 256 361.7l0-57.7-96 0c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32l96 0 0-57.7c0-12.3 10-22.3 22.3-22.3c6.2 0 12.1 2.6 16.3 7.1z"
+                            />
                         </svg>
-                        <span>
-                            Information We Collect
-                        </span>
+                        <span> Information We Collect </span>
                     </h3>
                     <div class="text-gray-500">
                         <p class="mb-1">
@@ -43,16 +59,21 @@
                     </div>
                 </div>
                 <div class="mb-10">
-                    <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-[20px] mr-2">
+                    <h3
+                        class="flex items-center mb-4 text-lg font-medium text-gray-900"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512"
+                            class="w-[20px] mr-2"
+                        >
                             <path
-                                d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM294.6 135.1l99.9 107.1c3.5 3.8 5.5 8.7 5.5 13.8s-2 10.1-5.5 13.8L294.6 376.9c-4.2 4.5-10.1 7.1-16.3 7.1C266 384 256 374 256 361.7l0-57.7-96 0c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32l96 0 0-57.7c0-12.3 10-22.3 22.3-22.3c6.2 0 12.1 2.6 16.3 7.1z" />
+                                d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM294.6 135.1l99.9 107.1c3.5 3.8 5.5 8.7 5.5 13.8s-2 10.1-5.5 13.8L294.6 376.9c-4.2 4.5-10.1 7.1-16.3 7.1C266 384 256 374 256 361.7l0-57.7-96 0c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32l96 0 0-57.7c0-12.3 10-22.3 22.3-22.3c6.2 0 12.1 2.6 16.3 7.1z"
+                            />
                         </svg>
-                        <span>
-                            How We Use the Information
-                        </span>
+                        <span> How We Use the Information </span>
                     </h3>
-                    <ul class="list-checks  text-gray-500 mb-4">
+                    <ul class="list-checks text-gray-500 mb-4">
                         <li>To process and manage your PCP claim.</li>
                         <li>Improving our products and services</li>
                         <li>
@@ -69,15 +90,19 @@
                     </ul>
                 </div>
                 <div class="mb-10">
-                    <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900">
-
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-[20px] mr-2">
+                    <h3
+                        class="flex items-center mb-4 text-lg font-medium text-gray-900"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512"
+                            class="w-[20px] mr-2"
+                        >
                             <path
-                                d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM294.6 135.1l99.9 107.1c3.5 3.8 5.5 8.7 5.5 13.8s-2 10.1-5.5 13.8L294.6 376.9c-4.2 4.5-10.1 7.1-16.3 7.1C266 384 256 374 256 361.7l0-57.7-96 0c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32l96 0 0-57.7c0-12.3 10-22.3 22.3-22.3c6.2 0 12.1 2.6 16.3 7.1z" />
+                                d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM294.6 135.1l99.9 107.1c3.5 3.8 5.5 8.7 5.5 13.8s-2 10.1-5.5 13.8L294.6 376.9c-4.2 4.5-10.1 7.1-16.3 7.1C266 384 256 374 256 361.7l0-57.7-96 0c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32l96 0 0-57.7c0-12.3 10-22.3 22.3-22.3c6.2 0 12.1 2.6 16.3 7.1z"
+                            />
                         </svg>
-                        <span>
-                            Data Security
-                        </span>
+                        <span> Data Security </span>
                     </h3>
                     <p class="text-gray-500">
                         We employ industry-standard security measures to protect
@@ -88,14 +113,19 @@
                     </p>
                 </div>
                 <div class="mb-10">
-                    <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-[20px] mr-2">
+                    <h3
+                        class="flex items-center mb-4 text-lg font-medium text-gray-900"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512"
+                            class="w-[20px] mr-2"
+                        >
                             <path
-                                d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM294.6 135.1l99.9 107.1c3.5 3.8 5.5 8.7 5.5 13.8s-2 10.1-5.5 13.8L294.6 376.9c-4.2 4.5-10.1 7.1-16.3 7.1C266 384 256 374 256 361.7l0-57.7-96 0c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32l96 0 0-57.7c0-12.3 10-22.3 22.3-22.3c6.2 0 12.1 2.6 16.3 7.1z" />
+                                d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM294.6 135.1l99.9 107.1c3.5 3.8 5.5 8.7 5.5 13.8s-2 10.1-5.5 13.8L294.6 376.9c-4.2 4.5-10.1 7.1-16.3 7.1C266 384 256 374 256 361.7l0-57.7-96 0c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32l96 0 0-57.7c0-12.3 10-22.3 22.3-22.3c6.2 0 12.1 2.6 16.3 7.1z"
+                            />
                         </svg>
-                        <span>
-                            Sharing Your Information
-                        </span>
+                        <span> Sharing Your Information </span>
                     </h3>
                     <p class="text-gray-500">
                         We may share your personal information with trusted
@@ -107,15 +137,19 @@
                     </p>
                 </div>
                 <div class="mb-10">
-                    <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900">
-
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-[20px] mr-2">
+                    <h3
+                        class="flex items-center mb-4 text-lg font-medium text-gray-900"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512"
+                            class="w-[20px] mr-2"
+                        >
                             <path
-                                d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM294.6 135.1l99.9 107.1c3.5 3.8 5.5 8.7 5.5 13.8s-2 10.1-5.5 13.8L294.6 376.9c-4.2 4.5-10.1 7.1-16.3 7.1C266 384 256 374 256 361.7l0-57.7-96 0c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32l96 0 0-57.7c0-12.3 10-22.3 22.3-22.3c6.2 0 12.1 2.6 16.3 7.1z" />
+                                d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM294.6 135.1l99.9 107.1c3.5 3.8 5.5 8.7 5.5 13.8s-2 10.1-5.5 13.8L294.6 376.9c-4.2 4.5-10.1 7.1-16.3 7.1C266 384 256 374 256 361.7l0-57.7-96 0c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32l96 0 0-57.7c0-12.3 10-22.3 22.3-22.3c6.2 0 12.1 2.6 16.3 7.1z"
+                            />
                         </svg>
-                        <span>
-                            Your Rights
-                        </span>
+                        <span> Your Rights </span>
                     </h3>
                     <div class="text-gray-500">
                         <p class="mb-4">
@@ -134,20 +168,28 @@
                     </div>
                 </div>
                 <div class="mb-10">
-                    <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900">
-
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-[20px] mr-2">
+                    <h3
+                        class="flex items-center mb-4 text-lg font-medium text-gray-900"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512"
+                            class="w-[20px] mr-2"
+                        >
                             <path
-                                d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM294.6 135.1l99.9 107.1c3.5 3.8 5.5 8.7 5.5 13.8s-2 10.1-5.5 13.8L294.6 376.9c-4.2 4.5-10.1 7.1-16.3 7.1C266 384 256 374 256 361.7l0-57.7-96 0c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32l96 0 0-57.7c0-12.3 10-22.3 22.3-22.3c6.2 0 12.1 2.6 16.3 7.1z" />
+                                d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM294.6 135.1l99.9 107.1c3.5 3.8 5.5 8.7 5.5 13.8s-2 10.1-5.5 13.8L294.6 376.9c-4.2 4.5-10.1 7.1-16.3 7.1C266 384 256 374 256 361.7l0-57.7-96 0c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32l96 0 0-57.7c0-12.3 10-22.3 22.3-22.3c6.2 0 12.1 2.6 16.3 7.1z"
+                            />
                         </svg>
-                        <span>
-                            Contact Us
-                        </span>
+                        <span> Contact Us </span>
                     </h3>
                     <p class="text-gray-500">
                         If you have any questions or concerns about our privacy
                         practices or your personal information, please contact
-                        us at [insert contact information]. We're here to help!
+                        us at
+                        <span class="text-blue-500">{{
+                            generalSetting.company_email
+                        }}</span
+                        >. We're here to help!
                     </p>
                 </div>
             </div>

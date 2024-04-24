@@ -1,3 +1,8 @@
+<script setup>
+defineProps({
+    name: String,
+});
+</script>
 <template>
     <section class="border-b bg-gray-100">
         <div class="py-8 px-6 mx-auto max-w-7xl sm:py-16 lg:px-0">
@@ -141,7 +146,7 @@
 
                         <article class="px-4 pb-4">
                             <p>
-                                At PCP Claims, we operate on a no win, no fee
+                                At {{ name }}, we operate on a no win, no fee
                                 basis. This means you won't have to pay anything
                                 upfront, and you'll only be charged if we
                                 successfully win your claim. Our transparent fee
