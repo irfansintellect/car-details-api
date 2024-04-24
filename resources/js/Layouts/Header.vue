@@ -64,7 +64,7 @@ function toggleMenu() {
                         <button
                             @click="onClickScrollToSection('home')"
                             class="block py-2 px-3 text-gray-900 rounded md:p-0 hover:text-green-600 transition-all"
-                            :class="{ 'text-blue-700': navValue == 'home' }"
+                            :class="{ 'text-green-600': navValue == 'home' }"
                             aria-current="page"
                         >
                             Start Claim
@@ -74,7 +74,7 @@ function toggleMenu() {
                         <button
                             @click="onClickScrollToSection('FAQs')"
                             class="block py-2 px-3 text-gray-900 rounded md:border-0 md:p-0 hover:text-green-600 transition-all"
-                            :class="{ 'text-blue-700': navValue == 'FAQs' }"
+                            :class="{ 'text-green-600': navValue == 'FAQs' }"
                         >
                             FAQs
                         </button>
@@ -84,7 +84,7 @@ function toggleMenu() {
                             @click="onClickScrollToSection('privacyPolicy')"
                             class="block py-2 px-3 text-gray-900 rounded md:p-0 hover:text-green-600 transition-all"
                             :class="{
-                                'text-blue-700': navValue == 'privacyPolicy',
+                                'text-green-600': navValue == 'privacyPolicy',
                             }"
                         >
                             Privacy Policy
