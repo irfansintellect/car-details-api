@@ -8,7 +8,7 @@ import PcpLayout from "@/Layouts/PcpLayout.vue";
 import { Head, useForm } from "@inertiajs/vue3";
 import { useVuelidate } from "@vuelidate/core";
 import { email, helpers, required } from "@vuelidate/validators";
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import CheckNowRibbon from "../../Components/App/CheckNowRibbon.vue";
 import Loading from "@/Components/App/Loading.vue";
 
@@ -59,6 +59,10 @@ const form = useForm({
     lenders_name: "",
     confirmClaim: null,
 });
+
+onMounted(() => {
+    console.log(props.data)
+})
 
 const validations = computed(() => ({
     vehicle_value: {
