@@ -1,9 +1,10 @@
 <script setup>
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-import { Head, Link } from "@inertiajs/vue3";
+import { Head, Link, router, usePage } from "@inertiajs/vue3";
 import CarDetails from "@/Components/App/CarDetails.vue";
 import { ref } from "vue";
 import { TailwindPagination } from 'laravel-vue-pagination';
+
 const form = ref({});
 const isShowCarDetail = ref(false);
 
@@ -13,7 +14,7 @@ function showCarDetails(query) {
 }
 
 function getResults(e) {
-    window.location.href = '/dashboard?page=' + e;
+    return router.visit('/dashboard?page=' + e);
 }
 
 const props = defineProps({
