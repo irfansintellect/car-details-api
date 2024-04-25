@@ -22,8 +22,7 @@ return [
     'allowed_methods' => ['*'],
     'exposedHeaders' => [],
     'maxAge' => 0,
-
-
+    'supports_credentials' => true,
 
     'allowed_origins' => ['*'],
 
