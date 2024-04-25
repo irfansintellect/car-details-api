@@ -93,7 +93,7 @@ const props = defineProps({
                     </table>
 
                     <div v-else class="p-5">
-                        No records found
+                        No records found!
                     </div>
                     <div class="my-5">
                         <TailwindPagination
