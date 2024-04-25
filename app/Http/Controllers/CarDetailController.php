@@ -28,7 +28,7 @@ class CarDetailController extends Controller
         $url="https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles";
         $key="cJYFpTF7Db8zonDMVCaKuxS9N0OWFElaBq6kMcK5";
 
-        dd($url);
+        // dd($url);
 
         try {
             $response = $client->request('POST', $url, [
