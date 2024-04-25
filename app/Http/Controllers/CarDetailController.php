@@ -22,8 +22,8 @@ class CarDetailController extends Controller
         $data = $request->validated();
         $regno = $data['regno'];
         $client  = new Client();
-        $url = env('API_URL');
-        $key = env('API_KEY');
+        $url = getenv('API_URL');
+        $key = getenv('API_KEY');
 
         dd($url);
 
