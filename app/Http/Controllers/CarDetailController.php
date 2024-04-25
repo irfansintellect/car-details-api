@@ -22,8 +22,11 @@ class CarDetailController extends Controller
         $data = $request->validated();
         $regno = $data['regno'];
         $client  = new Client();
-        $url = env('API_URL');
-        $key = env('API_KEY');
+        // $url = env('API_URL');
+        // $key = env('API_KEY');
+
+        $url="https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles";
+        $key="cJYFpTF7Db8zonDMVCaKuxS9N0OWFElaBq6kMcK5";
 
         dd($url);
 
