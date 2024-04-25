@@ -33,8 +33,19 @@ class CarDetailController extends Controller
         // $reference = explode(",",$request->ids);
 
         try {
-            $response = $client->request('POST', $url, [
+            // $response = $client->request('POST', $url, [
+            //     'headers' => [
+            //         'Content-Type' => 'application/json',
+            //         'x-api-key' => $key
+            //     ],
+            //     'json' => [
+            //         'registrationNumber' => $regno
+            //     ],
+            // ]);
+
+            $response = $client->post($url, [
                 'headers' => [
+                    'Accept' => 'application/json',
                     'Content-Type' => 'application/json',
                     'x-api-key' => $key
                 ],
@@ -45,6 +56,7 @@ class CarDetailController extends Controller
             $data = $response->getBody()->getContents();
             $car_data = json_decode($data);
 
+            // dd($car_data);
 
             // $curl_post_data = [
             //     'registrationNumber' => $regno
