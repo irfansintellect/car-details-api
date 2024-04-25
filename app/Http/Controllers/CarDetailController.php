@@ -25,6 +25,8 @@ class CarDetailController extends Controller
         $url = env('API_URL');
         $key = env('API_KEY');
 
+        dd($url);
+
         try {
             $response = $client->request('POST', $url, [
                 'headers' => [
