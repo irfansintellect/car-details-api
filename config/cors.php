@@ -17,12 +17,7 @@ return [
 
     'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
-    'allowedHeaders' => ['Content-Type', 'X-Requested-With'],
-
     'allowed_methods' => ['*'],
-    'exposedHeaders' => [],
-    'maxAge' => 0,
-    'supports_credentials' => true,
 
     'allowed_origins' => ['*'],
 
