@@ -1,5 +1,8 @@
 <script setup>
+import { ref } from "vue";
+
 const emit = defineEmits(["viewSection"]);
+
 const onClickScrollToSection = (newValue) => {
     emit("viewSection", newValue);
 };

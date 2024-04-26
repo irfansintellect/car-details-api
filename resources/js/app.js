@@ -17,8 +17,6 @@ createInertiaApp({
         ),
     setup({ el, App, props, plugin }) {
         companyName = props.initialPage.props.generalSetting.company_name;
-
-        console.log(companyName);
         return createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue)
