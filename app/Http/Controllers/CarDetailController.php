@@ -6,14 +6,8 @@ use App\Http\Requests\SearchRequest;
 use App\Http\Requests\StoreRequest;
 use App\Mail\SendVehicleDetailEmail;
 use App\Models\Pcp;
-use Exception;
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
-use Illuminate\Auth\Events\Validated;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 
 class CarDetailController extends Controller
