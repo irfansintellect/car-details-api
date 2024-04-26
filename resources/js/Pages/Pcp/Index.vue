@@ -7,11 +7,12 @@ import WhyChooseUs from "@/Components/App/WhyChooseUs.vue";
 import PcpLayout from "@/Layouts/PcpLayout.vue";
 import { Head, useForm } from "@inertiajs/vue3";
 import { useVuelidate } from "@vuelidate/core";
-import { email, helpers, required } from "@vuelidate/validators";
-import { computed, onMounted, onUpdated, ref } from "vue";
+import { helpers, required } from "@vuelidate/validators";
+import { computed, ref } from "vue";
 import CheckNowRibbon from "../../Components/App/CheckNowRibbon.vue";
 import Loading from "@/Components/App/Loading.vue";
 import { usePage } from "@inertiajs/vue3";
+import axios from "axios";
 
 const generalSetting = usePage().props.generalSetting;
 
@@ -33,22 +34,22 @@ const props = defineProps({
 });
 
 const form = useForm({
-    registrationNumber: props.data?.registrationNumber,
-    taxStatus: props.data?.taxStatus,
-    taxDueDate: props.data?.taxDueDate,
-    motStatus: props.data?.motStatus,
-    make: props.data?.make,
-    yearOfManufacture: props.data?.yearOfManufacture,
-    engineCapacity: props.data?.engineCapacity,
-    co2Emissions: props.data?.co2Emissions,
-    fuelType: props.data?.fuelType,
-    markedForExport: props.data?.markedForExport,
-    colour: props.data?.colour,
-    typeApproval: props.data?.typeApproval,
-    dateOfLastV5CIssued: props.data?.dateOfLastV5CIssued,
-    motExpiryDate: props.data?.motExpiryDate,
-    wheelplan: props.data?.wheelplan,
-    monthOfFirstRegistration: props.data?.monthOfFirstRegistration,
+    registrationNumber: "",
+    taxStatus: "",
+    taxDueDate: "",
+    motStatus: "",
+    make: "",
+    yearOfManufacture: "",
+    engineCapacity: "",
+    co2Emissions: "",
+    fuelType: "",
+    markedForExport: "",
+    colour: "",
+    typeApproval: "",
+    dateOfLastV5CIssued: "",
+    motExpiryDate: "",
+    wheelplan: "",
+    monthOfFirstRegistration: "",
     regno: "Kj16cnz",
     title: "",
     name: "",
@@ -63,31 +64,6 @@ const form = useForm({
     confirmClaim: null,
 });
 
-onMounted(() => {
-    console.log("registrationNumber", form.registrationNumber);
-    console.log(props.data);
-    // props.taxStatus = props.data?.taxStatus,
-});
-
-onUpdated(() => {
-    form.registrationNumber = props.data?.registrationNumber;
-    form.taxStatus = props.data?.taxStatus;
-    form.taxDueDate = props.data?.taxDueDate;
-    form.motStatus = props.data?.motStatus;
-    form.make = props.data?.make;
-    form.yearOfManufacture = props.data?.yearOfManufacture;
-    form.engineCapacity = props.data?.engineCapacity;
-    form.co2Emissions = props.data?.co2Emissions;
-    form.fuelType = props.data?.fuelType;
-    form.markedForExport = props.data?.markedForExport;
-    form.colour = props.data?.colour;
-    form.typeApproval = props.data?.typeApproval;
-    form.dateOfLastV5CIssued = props.data?.dateOfLastV5CIssued;
-    form.motExpiryDate = props.data?.motExpiryDate;
-    form.wheelplan = props.data?.wheelplan;
-    form.monthOfFirstRegistration = props.data?.monthOfFirstRegistration;
-    console.log("updated");
-});
 const validations = computed(() => ({
     vehicle_value: {
         required: helpers.withMessage(
@@ -145,19 +121,46 @@ function submitCliam() {
 
 function searchCarDetails() {
     isLoading.value = true;
-    form.post(route("search-car-details"), {
-        onSuccess: (data) => {
-            isLoading.value = false;
-            if (!props.searchError) {
+    axios
+        .post(route("search-car-details"), { regno: form.regno })
+        .then((response) => {
+            console.log(response);
+            const carData = response.data;
+            if (!carData.errors) {
+                form.registrationNumber = carData.registrationNumber;
+                form.taxStatus = carData.taxStatus;
+                form.taxDueDate = carData.taxDueDate;
+                form.motStatus = carData.motStatus;
+                form.make = carData.make;
+                form.yearOfManufacture = carData.yearOfManufacture;
+                form.engineCapacity = carData.engineCapacity;
+                form.co2Emissions = carData.co2Emissions;
+                form.fuelType = carData.fuelType;
+                form.markedForExport = carData.markedForExport;
+                form.colour = carData.colour;
+                form.typeApproval = carData.typeApproval;
+                form.dateOfLastV5CIssued = carData.dateOfLastV5CIssued;
+                form.motExpiryDate = carData.motExpiryDate;
+                form.wheelplan = carData.wheelplan;
+                form.monthOfFirstRegistration =
+                    carData.monthOfFirstRegistration;
+                isLoading.value = false;
                 currentStep.value++;
             } else {
-                errorMessage.value = props.searchError;
+                isLoading.value = false;
+                if (carData.errors[0].code == 404) {
+                    errorMessage.value = carData.errors[0].detail;
+                } else {
+                    errorMessage.value = "Invalid registration number format";
+                }
             }
-        },
-        onError: (errors) => {
+        })
+        .catch((error) => {
+            console.log(error);
             isLoading.value = false;
-        },
-    });
+            errorMessage.value =
+                "An unknown error occurred. Please try again later";
+        });
 }
 
 const sectionHome = ref(null);
@@ -185,8 +188,9 @@ const scrollToSection = (newValue) => {
     <div ref="sectionHome">
         <PcpLayout @viewSection="scrollToSection">
             <main>
-                <section class="bg-secondary-500 relative"
-                style="background-image: url('img/step-1-car-dark.jpg')"
+                <section
+                    class="bg-secondary-500 relative"
+                    style="background-image: url('img/step-1-car-dark.jpg')"
                 >
                     <div v-if="showCarDetails">
                         <div
@@ -251,10 +255,15 @@ const scrollToSection = (newValue) => {
                                                 @click.prevent="nextStep"
                                                 class="w-full items-center text-xl justify-center px-5 py-3 font-medium text-center border rounded-lg bg-green-500 hover:bg-green-600 transition-all text-white"
                                             >
-                                                <Loading v-if="isLoading" />
-                                                <template v-else>
+                                                <button
+                                                    class="text-center"
+                                                    :disabled="isLoading"
+                                                >
+                                                    <Loading v-if="isLoading" />
+
                                                     <div
-                                                        class="flex justify-center"
+                                                        v-else
+                                                        class="flex items-center"
                                                     >
                                                         <span class="mr-3"
                                                             >Search Claim</span
@@ -270,7 +279,7 @@ const scrollToSection = (newValue) => {
                                                             />
                                                         </svg>
                                                     </div>
-                                                </template>
+                                                </button>
                                             </button>
                                         </div>
                                         <div class="relative mb-10">

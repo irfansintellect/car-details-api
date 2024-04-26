@@ -9,6 +9,7 @@ const isMenuOpen = ref(false);
 
 const emit = defineEmits(["viewSection"]);
 
+const newValue = ref("");
 const onClickScrollToSection = (newValue) => {
     navValue.value = newValue;
     emit("viewSection", newValue);

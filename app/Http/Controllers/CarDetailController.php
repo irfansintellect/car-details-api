@@ -11,6 +11,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
@@ -21,35 +22,19 @@ class CarDetailController extends Controller
     {
         $data = $request->validated();
         $regno = $data['regno'];
-        $client  = new Client();
         $url = env('API_URL');
-        $key = env('API_KEY');
+        $apiKey = env('API_KEY');
 
         try {
-            $response = $client->request('POST', $url, [
-                'headers' => [
-                    'Content-Type' => 'application/json',
-                    'x-api-key' => $key
-                ],
-                'json' => [
-                    'registrationNumber' => $regno
-                ],
-            ]);
-            $data = $response->getBody()->getContents();
-            $car_data = json_decode($data);
+            $response = Http::withHeaders([
+                'x-api-key' => $apiKey,
+            ])->post($url, [
+                'registrationNumber' => $regno,
+            ])->json();
 
-            $sessionData = Session::get('car_data');
-            if ($sessionData) {
-                Session::forget('car_data');
-            }
-            Session::put('car_data', $car_data);
-            Session::forget('search_error');
-
-            return redirect()->to(route('home'));
-        } catch (ClientException $e) {
-            $response = $e->getResponse();
-            Session::flash('search_error', 'Registration not found: ' . $regno);
-            return back();
+            return response()->json($response, 201);
+        } catch (\Exception $e) {
+            return response()->json('An unknown error occurred. Please try again later.', 500);
         }
     }
 
