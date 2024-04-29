@@ -122,7 +122,9 @@ function submitCliam() {
 function searchCarDetails() {
     isLoading.value = true;
     axios
-        .post(route("search-car-details"), { regno: form.regno })
+        .post(route("search-car-details"), {
+            regno: form.regno,
+        })
         .then((response) => {
             console.log(response);
             const carData = response.data;
