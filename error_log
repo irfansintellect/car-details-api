@@ -1,0 +1,14 @@
+[25-Apr-2024 04:24:57 UTC] PHP Warning:  SolrParams::__toString() implemented without string return type in Unknown on line 0
+[25-Apr-2024 04:24:57 UTC] PHP Warning:  SolrCollapseFunction::__toString() implemented without string return type in Unknown on line 0
+[25-Apr-2024 04:25:05 UTC] PHP Warning:  SolrParams::__toString() implemented without string return type in Unknown on line 0
+[25-Apr-2024 04:25:05 UTC] PHP Warning:  SolrCollapseFunction::__toString() implemented without string return type in Unknown on line 0
+[25-Apr-2024 04:29:40 UTC] PHP Warning:  SolrParams::__toString() implemented without string return type in Unknown on line 0
+[25-Apr-2024 04:29:40 UTC] PHP Warning:  SolrCollapseFunction::__toString() implemented without string return type in Unknown on line 0
+[25-Apr-2024 04:29:49 UTC] PHP Warning:  SolrParams::__toString() implemented without string return type in Unknown on line 0
+[25-Apr-2024 04:29:49 UTC] PHP Warning:  SolrCollapseFunction::__toString() implemented without string return type in Unknown on line 0
+[25-Apr-2024 09:08:24 UTC] PHP Warning:  SolrParams::__toString() implemented without string return type in Unknown on line 0
+[25-Apr-2024 09:08:24 UTC] PHP Warning:  SolrCollapseFunction::__toString() implemented without string return type in Unknown on line 0
+[26-Apr-2024 09:56:16 UTC] PHP Warning:  SolrParams::__toString() implemented without string return type in Unknown on line 0
+[26-Apr-2024 09:56:16 UTC] PHP Warning:  SolrCollapseFunction::__toString() implemented without string return type in Unknown on line 0
+[26-Apr-2024 09:56:22 UTC] PHP Warning:  SolrParams::__toString() implemented without string return type in Unknown on line 0
+[26-Apr-2024 09:56:22 UTC] PHP Warning:  SolrCollapseFunction::__toString() implemented without string return type in Unknown on line 0

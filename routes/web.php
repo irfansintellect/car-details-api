@@ -20,11 +20,6 @@ Route::post('/store-claim', [CarDetailController::class, 'storeClaim'])->name('s
 
 route::get('/thank-you', [CarDetailController::class, 'thankYou'])->name('thank-you');
 
-route::get('/test', function () {
-    return Inertia::render('Pcp/Test');
-});
-
-
 Route::middleware('auth', 'verified')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/settings', [DashboardController::class, 'setting'])->name('settings');
